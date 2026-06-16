@@ -623,7 +623,7 @@ button { cursor: pointer; font-family: var(--sans); }
   transform: translateY(calc(-100% - 10px));
   transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
 }
-.sticky-bar.show { transform: translateY(0); }
+.sticky-bar.show { transform: translateY(var(--sticky-top, 68px)); }
 .sticky-bar-left { display: flex; align-items: center; gap: 12px; }
 .sticky-bar-center { display: flex; justify-content: center; }
 .sticky-bar-left { display: flex; align-items: center; gap: 14px; }
@@ -1400,12 +1400,12 @@ window.addEventListener('scroll', () => {
 
 /* ── STICKY BAR ── */
 function checkStickyBar() {
-  const pricing = document.getElementById('pricingSection');
-  const rect = pricing.getBoundingClientRect();
+  const btn = document.getElementById('buyBtn');
   const bar = document.getElementById('stickyBar');
   const navH = document.getElementById('mainNav').offsetHeight;
-  bar.style.top = navH + 'px';
-  bar.classList.toggle('show', rect.bottom < 0);
+  bar.style.setProperty('--sticky-top', navH + 'px');
+  // show only once the Subscribe / buy button has scrolled up under the nav
+  bar.classList.toggle('show', btn.getBoundingClientRect().bottom < navH);
 }
 
 /* ── REVEAL ANIMATIONS ── */
