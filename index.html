@@ -731,6 +731,16 @@ button { cursor: pointer; font-family: var(--sans); }
   .fiber-truth-split { grid-template-columns: 1fr; gap: 32px; margin-bottom: 40px; }
   .stat-row-num { font-size: 40px; min-width: 64px; }
   .compare-head-cell, .c-cell { padding: 12px 14px; font-size: 11px; }
+  /* compare table → mobile card layout: hide "Ask yourself", question spans full width, Regular | ForBelly split below */
+  .compare-head { grid-template-columns: 1fr 1fr; }
+  .compare-head-cell.ask { display: none; }
+  .compare-head-cell.center { padding: 12px 12px; font-size: 10px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+  .compare-head-cell.fb { padding: 12px 12px; font-size: 10px; text-align: center; }
+  .compare-row { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; }
+  .c-cell.cat { grid-column: 1 / -1; grid-row: 1; padding: 10px 12px; font-size: 12px; border-bottom: 1px solid rgba(0,0,0,0.07); background: rgba(255,248,204,0.6); text-align: center; justify-content: center; }
+  .c-cell.cat::before { content: none; }
+  .c-cell.reg { grid-column: 1; grid-row: 2; padding: 10px 12px; padding-right: 12px; border-right: 1px solid var(--border); font-size: 11px; text-align: left; justify-content: flex-start; display: flex; align-items: flex-start; gap: 4px; flex-wrap: wrap; }
+  .c-cell.forbelly { grid-column: 2; grid-row: 2; padding: 10px 12px; text-align: left; font-size: 12px; font-weight: 700; color: var(--g700); display: flex; align-items: flex-start; flex-wrap: wrap; }
   .benefits { padding: 64px 20px; }
   .benefit-grid { grid-template-columns: 1fr; }
   .benefit-card { padding: 28px 24px; }
