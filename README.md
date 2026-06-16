@@ -7,10 +7,15 @@ A self-contained static site — no build step. Open `index.html` in any browser
 ## Structure
 
 ```
-index.html      The full homepage (inline CSS + JS)
-assets/         Product imagery
-uploads/        Hero, logo, lifestyle, and founder images
+index.html            The full desktop homepage (inline CSS + JS)
+mobile-preview.html   390px mobile preview of the homepage (forced mobile layout)
+assets/               Product imagery
+uploads/              Hero, logo, lifestyle, and founder images
 ```
+
+`mobile-preview.html` is a standalone preview that forces the homepage into a centered
+390px column with the mobile layout always on — handy for reviewing the phone view on a
+desktop screen. It's kept separate from `index.html`; desktop changes don't affect it.
 
 ## Deploy on Netlify
 
