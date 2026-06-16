@@ -50,6 +50,9 @@ button { cursor: pointer; font-family: var(--sans); }
 }
 .announce strong { font-weight: 700; color: var(--yellow); }
 .announce-sep { opacity: 0.3; margin: 0 12px; }
+.announce-track { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+.announce-dup, .announce-dup-sep { display: none; }
+@keyframes announce-marquee { from { transform: translateX(0); } to { transform: translateX(-100%); } }
 
 /* ── NAV ── */
 .nav {
@@ -705,6 +708,12 @@ button { cursor: pointer; font-family: var(--sans); }
 
 /* ── MOBILE RESPONSIVE ── */
 @media (max-width: 768px) {
+  /* announce bar → thin scrolling ticker */
+  .announce { height: 30px; font-size: 11px; justify-content: flex-start; overflow: hidden; gap: 0; }
+  .announce-track { flex-shrink: 0; animation: announce-marquee 18s linear infinite; }
+  .announce-dup { display: flex; }
+  .announce-dup-sep { display: inline; }
+  .announce-sep { margin: 0 8px; }
   .nav-links { display: none; }
   .nav-inner { padding: 0 20px; }
   .nav-cta { font-size: 12px; padding: 8px 16px; }
@@ -803,11 +812,22 @@ button { cursor: pointer; font-family: var(--sans); }
 
 <!-- ANNOUNCE -->
 <div class="announce">
-  <span>🌿 New: Lemon Ginger Prebiotic Fiber</span>
-  <span class="announce-sep">·</span>
-  <span>Summer Sale — <strong>25% off with SUMMER25</strong></span>
-  <span class="announce-sep">·</span>
-  <span>Free shipping on orders $40+</span>
+  <div class="announce-track">
+    <span>🌿 New: Lemon Ginger Prebiotic Fiber</span>
+    <span class="announce-sep">·</span>
+    <span>Summer Sale — <strong>25% off with SUMMER25</strong></span>
+    <span class="announce-sep">·</span>
+    <span>Free shipping on orders $40+</span>
+    <span class="announce-sep announce-dup-sep">·</span>
+  </div>
+  <div class="announce-track announce-dup" aria-hidden="true">
+    <span>🌿 New: Lemon Ginger Prebiotic Fiber</span>
+    <span class="announce-sep">·</span>
+    <span>Summer Sale — <strong>25% off with SUMMER25</strong></span>
+    <span class="announce-sep">·</span>
+    <span>Free shipping on orders $40+</span>
+    <span class="announce-sep announce-dup-sep">·</span>
+  </div>
 </div>
 
 <!-- NAV -->
