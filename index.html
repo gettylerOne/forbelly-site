@@ -772,9 +772,14 @@ button { cursor: pointer; font-family: var(--sans); }
   .cta-price { font-size: 48px; }
   .footer { padding: 48px 20px 28px; }
   .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .sticky-bar { padding: 10px 20px; }
-  .sticky-bar-name { font-size: 13px; }
-  .sticky-bar-btn { font-size: 13px; padding: 10px 20px; }
+  .sticky-bar { padding: 8px 14px; grid-template-columns: 1fr auto; gap: 10px; }
+  .sticky-bar > div:last-child { display: none; } /* drop the empty 3rd grid column */
+  .sticky-bar-left { gap: 10px; min-width: 0; }
+  .sticky-bar-left > div:last-child { min-width: 0; }
+  .sticky-bar-thumb { width: 38px; height: 38px; flex-shrink: 0; }
+  .sticky-bar-name { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sticky-bar-price { font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sticky-bar-btn { font-size: 13px; padding: 9px 18px; white-space: nowrap; }
   .modal { padding: 36px 24px; }
   .modal-h { font-size: 28px; }
   .s-h2 { font-size: clamp(26px, 7vw, 40px); }
